@@ -10,8 +10,8 @@ const movie = new mongoose.Schema({
     },
     directors: [String],
     cast: [String],
-    releaseDate: String,
-    status: String
+    status: String,
+    imageurl: String
 })
 
 const Movie = mongoose.model('movies',movie);

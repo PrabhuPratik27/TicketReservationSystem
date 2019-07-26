@@ -39,6 +39,27 @@ module.exports = {
             })
         }
 
+    },
+    async getShowByMovie (req,res) {
+        try {
+            const show = await Show.find({
+                movie: req.movie
+            })
+
+            if(!show) {
+                return res.status(203).send({
+                    err: "No shows are available at the moment"
+                })
+            }
+
+            res.send({
+                shows: show
+            })
+        } catch (err) {
+            res.status(500).send({
+                err: "We are experining some errors right now. Please try again after some time"
+            })
+        }
     }
 
 }
